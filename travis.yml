@@ -5,3 +5,5 @@ services:
 before_install:
   - docker build -t mustafansrv/docker-react-frontend -f Dockerfile.dev .
 
+script:
+  - docker run -e CI=true mustafansrv/docker-react-frontend npm run test
