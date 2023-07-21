@@ -6,7 +6,7 @@ before_install:
   - docker build -t mustafansrv/docker-react-frontend -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true -t mustafansrv/docker-react-frontend npm run test -- --coverage
+  - docker run -e CI=true mustafansrv/docker-react-frontend npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
@@ -19,4 +19,3 @@ deploy:
     branch: main
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_KEY"
-  edge: true
